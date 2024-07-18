@@ -1139,10 +1139,10 @@ GameObject:
   - component: {fileID: 1976155351}
   - component: {fileID: 1976155353}
   - component: {fileID: 1976155352}
-  - component: {fileID: 1976155355}
   - component: {fileID: 1976155354}
+  - component: {fileID: 1976155355}
   m_Layer: 5
-  m_Name: SoundButton
+  m_Name: AudioButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,11 +1258,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976155350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f46e3d0ce6bdb05418d601102ae64f39, type: 3}
+  m_Script: {fileID: 11500000, guid: b8a316401dbdf664da2e47b606ea1f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicOnSprite: {fileID: 21300000, guid: 5b3dd80d7cd50414483157f66f3f68d4, type: 3}
-  musicOffSprite: {fileID: 21300000, guid: 2adb4aa87c61efc41b9b0dedc7233ef0, type: 3}
+  soundButton: {fileID: 1976155354}
+  musicButton: {fileID: 0}
+  soundOnIcon: {fileID: 21300000, guid: c9da8260a517c6c4ab45a87719fce572, type: 3}
+  soundOffIcon: {fileID: 21300000, guid: 2adb4aa87c61efc41b9b0dedc7233ef0, type: 3}
+  musicOnIcon: {fileID: 0}
+  musicOffIcon: {fileID: 0}
 --- !u!1 &2042930115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1372,7 @@ GameObject:
   - component: {fileID: 2070483521}
   - component: {fileID: 2070483520}
   - component: {fileID: 2070483523}
+  - component: {fileID: 2070483524}
   m_Layer: 5
   m_Name: MusicButton
   m_TagString: Untagged
@@ -1406,8 +1411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46e3d0ce6bdb05418d601102ae64f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicOnSprite: {fileID: 21300000, guid: 7992618ec7f051a4283857fd71763520, type: 3}
-  musicOffSprite: {fileID: 21300000, guid: 03cffecaef48d794b94c0267d39b0e37, type: 3}
+  musicButton: {fileID: 2070483523}
+  musicOnIcon: {fileID: 21300000, guid: 7992618ec7f051a4283857fd71763520, type: 3}
+  musicOffIcon: {fileID: 21300000, guid: 03cffecaef48d794b94c0267d39b0e37, type: 3}
+  musicSource: {fileID: 0}
 --- !u!114 &2070483521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,6 +1497,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2070483524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070483518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46e3d0ce6bdb05418d601102ae64f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicButton: {fileID: 0}
+  musicOnIcon: {fileID: 0}
+  musicOffIcon: {fileID: 0}
+  musicSource: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

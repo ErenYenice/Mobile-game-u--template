@@ -1,66 +1,51 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class ToggleMusicButton : MonoBehaviour, IPointerClickHandler
+public class MusicManager : MonoBehaviour
 {
-    public Sprite musicOnSprite;  // Müzik açýkken kullanýlacak görsel
-    public Sprite musicOffSprite; // Müzik kapalýyken kullanýlacak görsel
-    private bool isMusicOn = true; // Baþlangýçta müzik açýk
-    private Button button;
-    private Image buttonImage;
+    public Button musicButton;
+    public Sprite musicOnIcon;
+    public Sprite musicOffIcon;
+    public AudioSource musicSource;
+
+    private bool isMusicOn = true;
 
     void Start()
     {
-        button = GetComponent<Button>();
-        buttonImage = button.GetComponent<Image>();
-        button.onClick.AddListener(ToggleMusic);
-        UpdateButtonImage();
-    }
+        // Baþlangýçta müzik çalsýn
+        if (musicSource != null && isMusicOn)
+        {
+            musicSource.Play();
+        }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        ToggleMusic();
+        musicButton.onClick.AddListener(ToggleMusic);
+        UpdateMusicButton();
     }
 
     void ToggleMusic()
     {
         isMusicOn = !isMusicOn;
-        UpdateButtonImage();
+        UpdateMusicButton();
 
         if (isMusicOn)
         {
-            // Müzik açma kodu buraya
-            Debug.Log("Müzik Açýk");
+            musicSource.Play();
         }
         else
         {
-            // Müzik kapama kodu buraya
-            Debug.Log("Müzik Kapalý");
+            musicSource.Pause();
         }
     }
 
-    void UpdateButtonImage()
+    void UpdateMusicButton()
     {
         if (isMusicOn)
         {
-            buttonImage.sprite = musicOnSprite;
+            musicButton.GetComponent<Image>().sprite = musicOnIcon;
         }
         else
         {
-            buttonImage.sprite = musicOffSprite;
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // Mouse sol tuþuna basýldýðýnda
-        {
-            // Eðer UI öðelerinin üzerine týklanmadýysa sahneyi aç
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                ToggleMusic();
-            }
+            musicButton.GetComponent<Image>().sprite = musicOffIcon;
         }
     }
 }
