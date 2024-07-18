@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
-public class backBlockCOntroller : MonoBehaviour, IPointerClickHandler
+public class BackButton : MonoBehaviour, IPointerClickHandler
 {
     // Bu fonksiyon, butona týklanýldýðýnda çalýþtýrýlacak
     public void OpenSettingsScene()
